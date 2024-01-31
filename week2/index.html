@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JC</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <section class="container swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="pic">
+                    <img src="coffee.avif" alt="" class="image">
+                    <div class="image-text">
+                        <span class="text">Have one of the finest coffee drinks!</span>
+                        <h2>Place your coffee <br>order here</h2>
+                        <a href="coffee.html" class="button">Order</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="pic">
+                    <img src="tea.avif" alt="" class="image">
+                    <div class="image-text">
+                        <span class="text">Have one of the finest tea drinks!</span>
+                        <h2>Place your tea<br>order here</h2>
+                        <a href="#" class="button">Order</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="pic">
+                    <img src="juice.jpg" alt="" class="image">
+                    <div class="image-text">
+                        <span class="text">Have one of the finest juice drinks!</span>
+                        <h2>Place your juice<br>order here</h2>
+                        <a href="#" class="button">Order</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="pic">
+                    <img src="alc.avif" alt="" class="image">
+                    <div class="image-text">
+                        <span class="text">Have one of the finest alcohol drinks!</span>
+                        <h2>place your alcohol<br>order here</h2>
+                        <a href="#" class="button">Order</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="pic">
+                    <img src="desert.webp" alt="" class="image">
+                    <div class="image-text">
+                        <span class="text">Have one of the finest desserts!</span>
+                        <h2>Place your dessert<br>order here</h2>
+                        <a href="#" class="button">Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+        <div class="autoplay-progress">
+            <svg viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="20"></circle>
+            </svg>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const progressCircle = document.querySelector(".autoplay-progress svg");
+        const progressContent = document.querySelector(".autoplay-progress span");
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            on: {
+                autoplayTimeLeft(s, time, progress) {
+                    progressCircle.style.setProperty("--progress", 1 - progress);
+                    progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

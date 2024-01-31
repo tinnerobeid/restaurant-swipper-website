@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    /* background-color: blue; */
+}
+.content,
+.pic {
+    position: relative; /* Add position:relative to .pic */
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Uncomment overflow:hidden to hide overflowing content */
+}
+
+.pic::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.pic .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* Center the image */
+}
+
+.pic .image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Set text color */
+    text-align: center; /* Center text */
+}
+
+/* Additional styles for better text readability on top of the image */
+.pic .image-text h2,
+.pic .image-text span,
+.pic .image-text a {
+    margin: 0; /* Remove default margins */
+    padding: 10px; /* Add padding for better readability */
+}
+
+.image-text .text{
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+}
+.image-text h2{
+    font-size: 45px;
+    font-weight: 600;
+    color: #fff;
+}
+a.button{
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #333;
+    background: #fff;
+    text-decoration: none;
+    margin-top: 25px;
+}
+a.button:hover{
+    color: #fff;
+    background-color: bisque;
+}
